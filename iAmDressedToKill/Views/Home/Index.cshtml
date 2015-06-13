@@ -1,55 +1,9 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-		<form action="http://iamservice.azurewebsites.net/api/user" method="POST">
-			<label for="UserName">User</label>
-			<input id="UserName" name="UserName" type="text" value=""/>
-			<label for="Password">Password</label>
-			<input id="Password" name="Password" type="text" value="" />
-			<input type="submit"/>
-		</form>
-	</div>
-</div>
-<script type="text/javascript">
-	function PostData() {
-		// 1. Create XHR instance - Start
-		var xhr;
-		if (window.XMLHttpRequest) {
-			xhr = new XMLHttpRequest();
-		}
-		else if (window.ActiveXObject) {
-			xhr = new ActiveXObject("Msxml2.XMLHTTP");
-		}
-		else {
-			throw new Error("Ajax is not supported by this browser");
-		}
-		// 1. Create XHR instance - End
-
-		// 2. Define what to do when XHR feed you the response from the server - Start
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState === 4) {
-				if (xhr.status == 200 && xhr.status < 300) {
-					document.getElementById('div1').innerHTML = xhr.responseText;
-				}
-			}
-		}
-		// 2. Define what to do when XHR feed you the response from the server - Start
-
-		var userid = document.getElementById("userid").value;
-
-		// 3. Specify your action, location and Send to the server - Start 
-		xhr.open('POST', 'verify.php');
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send("userid=" + userid);
-		// 3. Specify your action, location and Send to the server - End
-	}
-</script>
+<h1>
+	Welcome to DressToKill!
+</h1>
+<p>
+	Your store for the best dresses in the world!
+</p>

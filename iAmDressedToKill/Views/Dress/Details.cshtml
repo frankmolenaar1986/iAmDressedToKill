@@ -1,0 +1,86 @@
+﻿@model iAmDressedToKill.Models.DressModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+	<h4>Dress details</h4>
+	<hr />
+	<div class="row">
+		<div class="col-md-6">
+			<dl class="dl-horizontal">
+				<dt>
+					@Html.DisplayNameFor(model => model.Name)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Name)
+				</dd>
+
+				<dt>
+					@Html.DisplayNameFor(model => model.Color)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Color)
+				</dd>
+
+				<dt>
+					@Html.DisplayNameFor(model => model.Price)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Price)
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-6">
+			<img src="@Model.ImageUrl" style="max-width:100%;"/>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<p>
+				Login met uw Dress to Kill account of vul uw iAm gegevens in voor een directe betaling.
+			</p>
+		</div>
+		<div class="col-md-6 border-right">
+			<div class="row">
+				<form method="POST">
+					<label for="standard-user" class="col-md-10 col-md-offset-2">DressToImpress Gebruikersnaam:</label>
+					<div class="col-md-10 col-md-offset-2">
+						<input id="standard-user" type="text" class="form-control" />
+					</div>
+					<label for="standard-password" class="col-md-10 col-md-offset-2">Wachtwoord:</label>
+					<div class="col-md-10 col-md-offset-2">
+						<input id="standard-password" type="password" class="form-control" />
+					</div>
+					<div class="col-md-8 col-md-offset-2">
+						<input class="btn btn-primary" type="submit" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<form action="http://iamservice.azurewebsites.net/api/user" method="POST">
+					<label for="iam-user" class="col-md-10 col-md-offset-2">
+						iAm User:
+					</label>
+					<div class="col-md-10 col-md-offset-2">
+						<input id="iam-user" name="UserName" type="text" value="" class="form-control" />
+					</div>
+					<label for="iam-password" class="col-md-10 col-md-offset-2">Password</label>
+					<div class="col-md-10 col-md-offset-2">
+						<input id="iam-password" name="Password" type="password" value="" class="form-control" />
+					</div>
+					<div class="col-md-8 col-md-offset-2">
+						<input class="btn btn-primary" type="submit" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
