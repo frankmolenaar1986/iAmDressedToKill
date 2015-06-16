@@ -217,6 +217,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\iAmServiceController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -294,6 +295,8 @@
     <Content Include="Views\Dress\Details.cshtml" />
     <Content Include="Views\Dress\Edit.cshtml" />
     <Content Include="Views\Dress\Index.cshtml" />
+    <Content Include="Views\iAmService\Verified.cshtml" />
+    <Content Include="Views\iAmService\Failure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

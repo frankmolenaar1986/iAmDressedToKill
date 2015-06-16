@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Web.Http.Results;
 using iAm.Models;
 
 namespace iAm.Controllers
@@ -79,7 +79,7 @@ namespace iAm.Controllers
         };
 
         // POST api/values
-        public HttpResponseMessage Post(User user)
+        public RedirectResult Post(User user)
         {
             if (ModelState.IsValid)
             {
@@ -92,13 +92,19 @@ namespace iAm.Controllers
                     user.UserNameHash = user.UserName + "|" + foundUser.UserNameSalt + "|" + user.DNS + "|" + user.PasswordHash;
                     user.UserName = null;
                     user.Password = null;
-                    return Request.CreateResponse(HttpStatusCode.OK, user);
+
+	                return Redirect(user.SuccessUrl);
+	                //the original return value
+	                //return Request.CreateResponse(HttpStatusCode.OK, user);
                 }
                 else
                 {
                     user.UserName = null;
-                    user.Password = null;
-                    return Request.CreateResponse(HttpStatusCode.NotFound, user);
+	                user.Password = null;
+
+					return Redirect(user.FailureUrl);
+					//the original return value
+					//return Request.CreateResponse(HttpStatusCode.NotFound, user);
                 }
 
                 //var response = Request.CreateResponse(
@@ -110,7 +116,9 @@ namespace iAm.Controllers
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+				return Redirect(user.FailureUrl);
+				//the original return value
+                //return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
         }
     }

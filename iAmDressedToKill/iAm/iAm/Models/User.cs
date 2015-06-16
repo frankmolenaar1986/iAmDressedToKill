@@ -14,5 +14,7 @@ namespace iAm.Models
         public String DNS { get; set; }
         public String MasterKey { get; set; }
         public String UserNameSalt { get; set; }
+		public String SuccessUrl { get; set; }
+		public String FailureUrl { get; set; }
     }
 }

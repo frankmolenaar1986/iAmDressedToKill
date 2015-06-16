@@ -66,6 +66,8 @@
 		<div class="col-md-6">
 			<div class="row">
 				<form action="http://iamservice.azurewebsites.net/api/user" method="POST">
+					<input type="text" hidden value="@Url.Action("Verified", "IAmService", null, "http")" name="SuccessUrl" id="SuccessUrl">
+					<input type="text" hidden value="@Url.Action("Failure", "IAmService", null, "http")" name="FailureUrl" id="FailureUrl">
 					<label for="iam-user" class="col-md-10 col-md-offset-2">
 						iAm User:
 					</label>
